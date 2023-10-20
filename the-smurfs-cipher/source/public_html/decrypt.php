@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $to_check = ($cipher_bytes + hexdec("d34db33f")) ^ $key_bytes;
     
-    if ($to_check == $password) {
+    if ($to_check === $password) {
       echo $flag;
     } else {
       echo "Sorry, your key is incorrect!";
