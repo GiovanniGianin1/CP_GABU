@@ -72,11 +72,7 @@ def upload_file():
             item_name = result[0].data.decode("utf-8")
 
             try:
-                db_cur.execute(
-                    "SELECT * FROM Movies WHERE name='"
-                    + item_name
-                    + "' COLLATE NOCASE;"
-                )
+                db_cur.execute("SELECT * FROM Movies WHERE name COLLATE NOCASE = ?;", (item_name,))
                 query_result = db_cur.fetchall()
 
                 # Format query result for html
